@@ -1,0 +1,95 @@
+1. >>> from news.models import * - импорт
+2. >>> u1 = User.objects.create_user(username='Antoshkina') - создалние 1 пельзователя
+3. >>> u2 = User.objects.create_user(username='Petrova') - создание 2 пользователя
+
+
+4. >>> cat1 = Category.objects.create(name='Nature') - создание категории 1
+5. >>> cat2 = Category.objects.create(name='News') - создание категории 2
+6. >>> cat3 = Category.objects.create(name='Popular') - создание категории 3
+7. >>> at4 = Category.objects.create(name='Creative') - создание категории 4
+
+8. >>> a1 = Author.objects.create(authorUser=u1) - создание автора новости
+9. >>> a2 = Author.objects.create(authorUser=u2)
+
+10. >>> p1 = Post.objects.create(author=a1, categoryType='Новость', title='Об одеколоне', text='Первый в истории одеколон появился как средство профилактики чумы') - создание новости
+11. >>> p2 = Post.objects.create(author=a2, categoryType='Статья', title='Слоны', text='единственные млекопитающие, не умеющие прыгать и единственные животное с 4 коленями.')
+12. >>> p3 = Post.objects.create(author=a2, categoryType='Статья', title='Наслаждайтесь природой.', text='Не позволяйте себе постоянно сидеть в четырех стенах. Выйдите на улицу, когда там идет мелкий дождь. Прогуляйтесь по набережной реки. Отдохните в лесу. Искупайтесь в озере. Погрейтесь на солнышке. Сыграйте в бадминтон. Походите босиком по траве. Насладитесь природой.') 
+
+13. >>> p1.postCategory.add(at4) - добавление категорий в новость
+14. >>> p1.postCategory.add(cat3)
+15. >>> p2.postCategory.add(cat1)
+16. >>> p2.postCategory.add(cat3)
+17. >>> p2.postCategory.add(at4)
+18. >>> p3.postCategory.add(cat1)
+19. >>> p3.postCategory.add(at4)
+
+20. >>> com1 = Comment.objects.create(text='Отличный пост', commentPost=p1, commentUser=u1) - добавление комментария
+21. >>> com2 = Comment.objects.create(text='Так себе пост', commentPost=p2, commentUser=u2)
+22. >>> com3 = Comment.objects.create(text='Отстой', commentPost=p3, commentUser=u1)
+23. >>> com4 = Comment.objects.create(text='Это лучшее', commentPost=p1, commentUser=u2)
+
+24. >>> Comment.objects.get(id=2).like() - добавление лайков и дизлайков. 
+	Comment.objects.get(id=2).like()
+	Comment.objects.get(id=2).like()
+	Comment.objects.get(id=1).like()
+	Comment.objects.get(id=3).dislike()
+	Comment.objects.get(id=4).dislike()
+	Comment.objects.get(id=4).like()
+	Comment.objects.get(id=4).like()
+	Comment.objects.get(id=4).like()	
+
+25. >>> Post.objects.get(id=1).like()
+	Post.objects.get(id=1).like()
+	Post.objects.get(id=1).like()
+	Post.objects.get(id=1).dislike()
+	Post.objects.get(id=2).dislike()
+	Post.objects.get(id=2).dislike()
+	Post.objects.get(id=2).like()
+	Post.objects.get(id=3).like()
+	Post.objects.get(id=3).like()
+	Post.objects.get(id=3).like()
+	Post.objects.get(id=3).like()
+
+          ............................
+26-34.    ............................
+
+
+35. >>> a1 = Author.objects.get(id=1)
+36. >>> a2 = Author.objects.get(id=2)
+
+37. >>> a1.update_rating()
+38. >>> a2.update_rating()
+
+39. >>> bestUser = Author.objects.order_by('-ratingAuthor').first() - лучший автор
+
+40. >>> for i in a:
+    ...     i.ratingAuthor           - выводит имя рейтинг пользователей
+    ...     i.authorUser.username
+    ...     
+
+41. >>> bestUser.authorUser.username  - пользователь с наивысшим рейтингом
+
+42. >>> bestPost = Post.objects.order_by('-rating').first() - лучший пост
+
+43. >>> posts.values('author__authorUser__username','rating', 'title').first() - имя автора, рейтинг, заголовок лучшей статьи
+
+44. >>> posts.first().preview()  - текст статьи
+
+45. >>> date = bestPost.dateCreation - дата
+46. >>> formatted_date = date.strftime('%d-%m-%Y')
+
+bestPost.author.authorUser.username  - автор статьи
+bestPost.rating                      - рейтинг статьи
+bestPost.title                       - заголовок статьи
+bestPost.preview                     - текст статьт
+formatted_date                       - дата добавления статьи
+
+com = Comment.objects.order_by()
+
+
+47. post = Post.objects.get(id=2) - комментарии к статье
+
+post.comment_set.values('commentPost', 'commentUser', 'text', 'rating') - 
+
+
+
