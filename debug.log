@@ -1,0 +1,283 @@
+Watching for file changes with StatReloader
+Not Found: /accounts/login/
+Not Found: /accounts/
+C:\Users\Аня\PROJECTS\NewPaper\project\project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /accounts/
+Starting new HTTPS connection (1): oauth.yandex.ru:443
+https://oauth.yandex.ru:443 "POST /token HTTP/1.1" 200 267
+Starting new HTTPS connection (1): login.yandex.ru:443
+https://login.yandex.ru:443 "GET /info?format=json HTTP/1.1" 200 377
+Not Found: /accaunts/signup
+Not Found: /accaunts/signup
+Forbidden (Permission denied): /create/
+Traceback (most recent call last):
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 108, in dispatch
+    return self.handle_no_permission()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 48, in handle_no_permission
+    raise PermissionDenied(self.get_permission_denied_message())
+django.core.exceptions.PermissionDenied
+Not Found: /news/accounts/logout/
+Not Found: /news/accounts/logout/
+Not Found: /news/accounts/logout/
+Not Found: /news/accounts/logout/
+Not Found: /news/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+C:\Users\Аня\PROJECTS\NewPaper\project\project\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Аня\PROJECTS\NewPaper\project\project\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Аня\PROJECTS\NewPaper\project\project\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Аня\PROJECTS\NewPaper\project\project\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+C:\Users\Аня\PROJECTS\NewPaper\project\project\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /news/accounts/logout/
+Not Found: /news/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+Not Found: /accounts/login/accounts/logout/
+C:\Users\Аня\PROJECTS\NewPaper\project\project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+Not Found: /accounts/signup/
+C:\Users\Аня\PROJECTS\NewPaper\project\project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Аня\PROJECTS\NewPaper\project\accounts\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\decorators.py", line 20, in wrap
+    resp = function(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 249, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 90, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 221, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 117, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 433, in full_clean
+    self._clean_fields()
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 448, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\forms.py", line 354, in clean_email
+    value = self.validate_unique_email(value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\forms.py", line 359, in validate_unique_email
+    assessment = assess_unique_email(value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\utils.py", line 550, in assess_unique_email
+    if not filter_users_by_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\utils.py", line 490, in filter_users_by_email
+    users.append(e.user)
+                 ^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 246, in __get__
+    raise self.RelatedObjectDoesNotExist(
+allauth.account.models.EmailAddress.user.RelatedObjectDoesNotExist: EmailAddress has no user.
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\decorators.py", line 20, in wrap
+    resp = function(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 249, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 90, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 221, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 117, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 433, in full_clean
+    self._clean_fields()
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 448, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\forms.py", line 354, in clean_email
+    value = self.validate_unique_email(value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\forms.py", line 359, in validate_unique_email
+    assessment = assess_unique_email(value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\utils.py", line 550, in assess_unique_email
+    if not filter_users_by_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\utils.py", line 490, in filter_users_by_email
+    users.append(e.user)
+                 ^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 246, in __get__
+    raise self.RelatedObjectDoesNotExist(
+allauth.account.models.EmailAddress.user.RelatedObjectDoesNotExist: EmailAddress has no user.
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\decorators.py", line 20, in wrap
+    resp = function(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 249, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 90, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 221, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\views.py", line 117, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 196, in errors
+    self.full_clean()
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 433, in full_clean
+    self._clean_fields()
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\forms\forms.py", line 448, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\forms.py", line 354, in clean_email
+    value = self.validate_unique_email(value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\forms.py", line 359, in validate_unique_email
+    assessment = assess_unique_email(value)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\utils.py", line 550, in assess_unique_email
+    if not filter_users_by_email(email):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\allauth\account\utils.py", line 490, in filter_users_by_email
+    users.append(e.user)
+                 ^^^^^^
+  File "C:\Users\Аня\PROJECTS\NewPaper\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 246, in __get__
+    raise self.RelatedObjectDoesNotExist(
+allauth.account.models.EmailAddress.user.RelatedObjectDoesNotExist: EmailAddress has no user.

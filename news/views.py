@@ -8,14 +8,14 @@ from django.urls import reverse_lazy
 from django.urls import reverse
 from django.core.validators import MinValueValidator
 from django.db.models.query import QuerySet
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
 
 
 
 # Create your views here.
 
-class PostList(ListView):
+class PostList(LoginRequiredMixin, ListView):
     model = Post
     ordering = 'dateCreation'
     template_name = 'main.html'

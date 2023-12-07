@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+#from dotenv import load_dotenv
+
+#load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,7 +50,14 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
+
 ]
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 SITE_ID = 1
 
@@ -67,6 +77,23 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'project.urls'
 LOGIN_REDIRECT_URL = "/news"
 
+ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',  # Файл для логирования
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
+    },
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -83,15 +110,15 @@ TEMPLATES = [
         },
     },
 ]
+
+WSGI_APPLICATION = 'project.wsgi.application'
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
 
-
-ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -138,6 +165,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+SITE_URL = 'http://127.0.0.1:8000'
 
 
 # Default primary key field type
@@ -145,11 +173,19 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [BASE_DIR / "static"]
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "antoshkina001"
+EMAIL_HOST_PASSWORD = "svwpzuetvxsihoev"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_ADMIN = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = "antoshkina001@yandex.com"
 
