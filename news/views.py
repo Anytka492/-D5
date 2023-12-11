@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, Subscription, Category
 from datetime import datetime
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .filters import PostFilter
@@ -9,7 +9,9 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator
 from django.db.models.query import QuerySet
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
+from django.db.models import Exists, OuterRef
 
 
 
@@ -75,5 +77,36 @@ class PostDelete(PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'news_delete.html'
     success_url = reverse_lazy('post_list')
+
+
+@login_required
+@csrf_protect
+def subscriptions(request):
+    if request.method == 'POST':
+        category_id = request.POST.get('category_id')
+        category = Category.objects.get(id=category_id)
+        action = request.POST.get('action')
+
+        if action == 'subscribe':
+            Subscription.objects.create(user=request.user, category=category)
+        elif action == 'unsubscribe':
+            Subscription.objects.filter(
+                user=request.user,
+                category=category,
+            ).delete()
+
+    categories_with_subscriptions = Category.objects.annotate(
+        user_subscribed=Exists(
+            Subscription.objects.filter(
+                user=request.user,
+                category=OuterRef('pk'),
+            )
+        )
+    ).order_by('name')
+    return render(
+        request,
+        'subscriptions.html',
+        {'categories': categories_with_subscriptions},
+    )
 
 

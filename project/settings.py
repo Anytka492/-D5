@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-#from dotenv import load_dotenv
 
-#load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
+    'django_apscheduler',
 
 ]
 
@@ -57,7 +56,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 SITE_ID = 1
 
@@ -78,21 +77,7 @@ ROOT_URLCONF = 'project.urls'
 LOGIN_REDIRECT_URL = "/news"
 
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',  # Файл для логирования
-        },
-    },
-    'root': {
-        'handlers': ['file'],
-        'level': 'DEBUG',
-    },
-}
+
 
 TEMPLATES = [
     {
@@ -105,7 +90,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
             ],
         },
     },
@@ -177,15 +161,15 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "antoshkina001"
-EMAIL_HOST_PASSWORD = "svwpzuetvxsihoev"
+EMAIL_HOST_PASSWORD = "wqeqfwadeochqtrf"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_ADMIN = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = "antoshkina001@yandex.com"
-
+SERVER_EMAIL = "antoshkina001@yandex.com"
