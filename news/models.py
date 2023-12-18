@@ -88,14 +88,14 @@ class Comment(models.Model):
         return self.text[0:123] + '...'
 
 
-class Subscription(models.Model):
+class Subscriber(models.Model):
     user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
-        related_name='subscriptions',
+        related_name='subscrptions',
     )
     category = models.ForeignKey(
-        to='Category',
+        to=Category,
         on_delete=models.CASCADE,
-        related_name='subscriptions',
+        related_name='subscrptions',
     )

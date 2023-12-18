@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Subscription, Category
+from .models import Post, Subscriber, Category
 from datetime import datetime
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .filters import PostFilter
@@ -50,6 +50,7 @@ class PostDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['time_now'] = datetime.utcnow()
         return context
+
 
 class PostCreate(PermissionRequiredMixin, CreateView):
     permission_required = ('news.add_post')
@@ -108,5 +109,3 @@ def subscriptions(request):
         'subscriptions.html',
         {'categories': categories_with_subscriptions},
     )
-
-

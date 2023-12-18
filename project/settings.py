@@ -173,3 +173,10 @@ EMAIL_USE_SSL = True
 EMAIL_ADMIN = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = "antoshkina001@yandex.com"
 SERVER_EMAIL = "antoshkina001@yandex.com"
+
+
+CELERY_BROKER_URL = 'redis://default:aUmInUIg8RGRceHELczA7ONi0IS2j9JA@redis-14676.c253.us-central1-1.gce.cloud.redislabs.com:14676'
+CELERY_RESULT_BACKEND = 'redis://default:aUmInUIg8RGRceHELczA7ONi0IS2j9JA@redis-14676.c253.us-central1-1.gce.cloud.redislabs.com:14676'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
