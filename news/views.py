@@ -12,7 +12,8 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Exists, OuterRef
-
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 
 
 # Create your views here.
@@ -39,7 +40,23 @@ class PostList(LoginRequiredMixin, ListView):
 class PostDetail(DetailView):
     model = Post
     template_name = 'news.html'
-    context_object_name = 'article'
+    context_object_name = 'Post'
+    pk_url_kwarg = 'pk'
+
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["pk"]}', None)
+
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+        return obj
+
+class PostSearch(ListView):
+    form_class = PostFilter
+    model = Post
+    template_name = 'news_search.html'
+    context_object_name = 'Posts'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -48,8 +65,23 @@ class PostDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['is_author'] = self.request.user.groups.filter(name='authors').exists()
         context['time_now'] = datetime.utcnow()
+        context['next_sale'] = "Следующие новости скоро опубликуем!"
+        context['filterset'] = self.filterset
         return context
+
+
+def create_news(request):
+    form = PostForm()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/news/')
+
+    return render(request, 'news_create.html', {'form': form})
 
 
 class PostCreate(PermissionRequiredMixin, CreateView):
