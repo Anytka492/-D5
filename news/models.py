@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.urls import reverse
+from django.core.cache import cache
 
 
 
@@ -49,15 +50,20 @@ class Post(models.Model):
         self.rating += 1
         self.save()
 
+    def dislike(self):
+    self.rating -= 1
+    self.save()
+
 
     def __str__(self):
         return f'{self.title.title()}: {self.text[:10]}'
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])
 
-    def dislike(self):
-        self.rating -= 1
-        self.save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        cache.delete(f'post-{self.pk}')
+
 
     def preview(self):
         return self.text[0:123] + '...'
