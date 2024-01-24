@@ -2,7 +2,7 @@ import datetime
 from celery import shared_task
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
-from NewsPaper import settings
+from project import settings
 from .models import Post, Subscriber
 
 

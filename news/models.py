@@ -5,7 +5,6 @@ from django.urls import reverse
 from django.core.cache import cache
 
 
-
 class Author(models.Model):
     authorUser = models.OneToOneField(User, on_delete=models.CASCADE)
     ratingAuthor = models.SmallIntegerField(default=0)
@@ -19,7 +18,7 @@ class Author(models.Model):
         cRat = 0
         cRat += commentRat.get('commentRating')
 
-        self.ratingAuthor = pRat *3 + cRat
+        self.ratingAuthor = pRat * 3 + cRat
         self.save()
 
 
@@ -51,20 +50,18 @@ class Post(models.Model):
         self.save()
 
     def dislike(self):
-    self.rating -= 1
-    self.save()
-
+        self.rating -= 1
+        self.save()
 
     def __str__(self):
         return f'{self.title.title()}: {self.text[:10]}'
-   
+
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         cache.delete(f'post-{self.pk}')
-
 
     def preview(self):
         return self.text[0:123] + '...'
@@ -73,7 +70,6 @@ class Post(models.Model):
 class PostCategory(models.Model):
     postThrough = models.ForeignKey(Post, on_delete=models.CASCADE)
     categoryThrough = models.ForeignKey(Category, on_delete=models.CASCADE)
-
 
 
 class Comment(models.Model):
