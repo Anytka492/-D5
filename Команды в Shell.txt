@@ -6,7 +6,7 @@
 4. >>> cat1 = Category.objects.create(name='Nature') - создание категории 1
 5. >>> cat2 = Category.objects.create(name='News') - создание категории 2
 6. >>> cat3 = Category.objects.create(name='Popular') - создание категории 3
-7. >>> at4 = Category.objects.create(name='Creative') - создание категории 4
+7. >>> cat4 = Category.objects.create(name='Creative') - создание категории 4
 
 8. >>> a1 = Author.objects.create(authorUser=u1) - создание автора новости
 9. >>> a2 = Author.objects.create(authorUser=u2)
@@ -15,13 +15,13 @@
 11. >>> p2 = Post.objects.create(author=a2, categoryType='Статья', title='Слоны', text='единственные млекопитающие, не умеющие прыгать и единственные животное с 4 коленями.')
 12. >>> p3 = Post.objects.create(author=a2, categoryType='Статья', title='Наслаждайтесь природой.', text='Не позволяйте себе постоянно сидеть в четырех стенах. Выйдите на улицу, когда там идет мелкий дождь. Прогуляйтесь по набережной реки. Отдохните в лесу. Искупайтесь в озере. Погрейтесь на солнышке. Сыграйте в бадминтон. Походите босиком по траве. Насладитесь природой.') 
 
-13. >>> p1.postCategory.add(at4) - добавление категорий в новость
+13. >>> p1.postCategory.add(cat4) - добавление категорий в новость
 14. >>> p1.postCategory.add(cat3)
 15. >>> p2.postCategory.add(cat1)
 16. >>> p2.postCategory.add(cat3)
-17. >>> p2.postCategory.add(at4)
+17. >>> p2.postCategory.add(cat4)
 18. >>> p3.postCategory.add(cat1)
-19. >>> p3.postCategory.add(at4)
+19. >>> p3.postCategory.add(cat4)
 
 20. >>> com1 = Comment.objects.create(text='Отличный пост', commentPost=p1, commentUser=u1) - добавление комментария
 21. >>> com2 = Comment.objects.create(text='Так себе пост', commentPost=p2, commentUser=u2)

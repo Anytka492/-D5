@@ -1,0 +1,97 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% load custom_tags %}
+{% load censor_filter %}
+
+
+<!-- Название у нас будет posts -->
+{% block title %}
+Posts
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все новости -->
+{% block content %}
+    <br>
+    <h1>Все новости</h1>
+    <h3>{% current_time '%d %b %Y' %}</h3>
+    <h3>Количество новостей: {{ Posts|length }}</h3>
+    <h3>{{ next_sale|default_if_none:"Чуть позже сообщим о новостях!" }}</h3>
+        {% if not is_subscriber %}
+            <p class="text-center"><a href="{% url 'subscriptions' %}" class="btn btn-secondary btn-sm">Подписаться</a></p>
+        {% endif %}
+    <hr>
+
+    {% if perms.newsapp.add_news %}
+    <a href="{% url 'news_create' %}">Добавить новость</a>
+    {% endif %}
+    <hr>
+    {% if Posts %}
+        <table>
+            <tr>
+                <td>Заголовок</td>
+                <td>Содержание</td>
+                <td>Автор</td>
+                <td>Категория</td>
+                <td>Рейтинг</td>
+                <td>Дата создания</td>
+
+                {% if perms.newsapp.change_news or perms.newsapp.delete_news %}
+<!--                or perms.newsapp.change_article or perms.newsapp.delete_article-->
+                <td>Действия</td>
+                {% endif %}
+            </tr>
+
+            {% for Post in category_news_list %}
+            <tr>
+                <td>{{ Post.title|censor }}</td>
+                <td>{{ Post.text|censor|truncatechars:20 }}</td>
+                <td>{{ Post.author.authorUser }}</td>
+                <td><a href="{% url 'category_list' categoryType.id %}">{{ Post.categoryType }}</a></td>
+                <td>{{ Post.rating }}</td>
+                <td>{{ Post.dateCreation|date:'d M Y'}}</td>
+
+                <td>
+                    {% if Post.author == request.user.author %}
+                    <a href="{% url 'news_update' pk=Post.id %}">Изменить</a>
+                    {% endif %}
+                    {% if perms.newsapp.delete_news %}
+                    <a href="{% url 'news_delete' Post.id %}">Удалить</a>
+                    {% endif %}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <!-- Если постов нет, говорим, что постов нет ;) -->
+        <h2> Постов нет! </h2>
+    {% endif %}
+
+
+    {% if page_obj.has_previous %}
+        <a href="?{% url_replace page=1 %}">1</a>
+        {% if page_obj.previous_page_number != 1 %}
+            ...
+            <a href="?page={% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+        {% endif %}
+    {% endif %}
+
+    {{ page_obj.number }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+        {% if paginator.num_pages != page_obj.next_page_number %}
+            ...
+            <a href="?page={% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+        {% endif %}
+    {% endif %}
+    <p></p>
+    {% if not is_author %}
+    <button>
+        <a class="nav-link" href="{% url 'account_upgrade' %}">
+            <h4>Cтать автором!</h4>
+        </a>
+    </button>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+
+{% block title %}POST{% endblock title %}
+
+{% block content %}
+<h1 style="text-align: center;">{{ article.title }}</h1><h2 style="text-align: center;">{{ time_now|date:"d M Y"}}</h2>
+<p>&nbsp</p>
+
+            <tbody>
+
+                       <td style="width: 100px; text-align: center;">Id: {{ article.id}};</td>
+                        <td style="width: 250px; text-align: center;">Рейтинг: {{ article.rating }};</td>
+                        <td style="width: 250px; text-align: center;">Дата написания: {{ article.dateCreation }}</td>
+
+                    <tr>
+                        <p>____________________________________________</p>
+                        <td style="text-align: center">{{ article.title }}</td>
+                        <td style="text-align: center">{{ article.text }}</td>
+                    </tr>
+
+            </tbody>
+
+
+
+{% endblock %}

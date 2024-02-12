@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block title %}
+Редактирование новости
+{% endblock title %}
+
+{% block content %}
+<h1> Редактирование новости </h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Редактировать новость</button>
+</form>
+{% endblock content %}

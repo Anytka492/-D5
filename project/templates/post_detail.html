@@ -1,0 +1,46 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load cache %}
+
+{% block title %} news... {% endblock title %}
+{% block test %}{% endblock test %}
+{% block navbar %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/news/">Home</a>
+                {% if not user.username %}
+                <a class="navbar-brand" href="/accounts/signup/">Регистрация</a>
+                <a class="navbar-brand" href="/accounts/login/">| Вход</a>
+                {% else %}
+                <a class="navbar-brand" href="/accounts/logout/">| Выход</a>
+                {% endif %}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                                href="/news/search/">Поиск</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/news/create/">Создание</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{post_detail.id}}/update/">Редактирование</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{post_detail.id}}/delete/">Удаление</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+{% endblock navbar %}
+{% cache 360 definite_news %}
+{% block content %}
+<p><h4>Новость № <span>{{post_detail.pk}}</span></h4></p>
+<p><h5>{{post_detail.post_creation_date|date:'jS. F. Y.'}}</h5></p>
+<p><h4>{{post_detail.title|censor}}</h4></p>
+<p>{{post_detail.post_content|censor}}</p>
+{% endblock content %}
+{% endcache definite_news %}

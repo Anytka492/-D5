@@ -1,0 +1,82 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load custom_tags %}
+
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<h1 style="text-align: center;">Все статьи</h1><h3 style="text-align: center;">{{ time_now|date:"d M Y"}}</h3>
+<p>&nbsp</p>
+    <form action="" method="get">
+        {{ filterset.form.as_p }}
+        <input type="submit" value="Найти" />
+    </form>
+
+    <hr>
+
+    {# Теперь будем проверять не request.user.is_authenticated, а конкретные права #}
+    {% if perms.news.add_post %}
+    <a href="{% url 'news_create' %}">Добавить пост</a>
+    {% endif %}
+
+
+        {% if news %}
+        <table>
+            <tr>
+                <td style="width: 100px; text-align: center;">Id Статьи</td>
+                <td style="width: 250px; text-align: center;">Заголовок</td>
+                <td style="width: 100px; text-align: center;">Рейтинг</td>
+                <td style="width: 250px; text-align: center;">Дата написания</td>
+                <td style="text-align: center;">Текст</td>
+
+                {# Условие получается составным. #}
+                {% if perms.news.change_post or perms.news.delete_post %}
+                <td>Действия</td>
+                {% endif %}
+            </tr>
+
+            {% for i in news %}
+            <tr>
+                <td style="text-align: center">{{ i.id }}</td>
+                <td style="text-align: center">{{ i.title }}</td>
+                <td style="text-align: center">{{ i.rating }}</td>
+                <td style="text-align: center">{{ i.dateCreation }}</td>
+                <td style="text-align: center">{{ i.text|truncatechars:20 }}</td>
+
+                <td>
+                    {% if perms.news.change_post %}
+                    <a href="{% url 'news_edit' i.id %}">Изменить</a>
+                    {% endif %}
+                    {% if perms.news.delete_post %}
+                    <a href="{% url 'news_delete' i.id %}">Удалить</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Нет постов</h2>!
+    {% endif %}
+        {# Информация о предыдущих страницах #}
+    {% if page_obj.has_previous %}
+            <a href="?{% url_replace page=1 %}">1</a>
+            {% if page_obj.previous_page_number != 1 %}
+                ...
+                <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+    {% endif %}
+
+        {# Информация о текущей странице #}
+        {{ page_obj.number }}
+
+        {# Информация о следующих страницах #}
+        {% if page_obj.has_next %}
+            <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+            {% if paginator.num_pages != page_obj.next_page_number %}
+                ...
+                <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+            {% endif %}
+        {% endif %}
+
+{% endblock %}
