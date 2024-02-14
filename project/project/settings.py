@@ -68,7 +68,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.sessions.middleware.SessionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'basic.middlewares.TimezoneMiddleware',
+    'news.middlewares.TimezoneMiddleware',
 
     'allauth.account.middleware.AccountMiddleware',
 
