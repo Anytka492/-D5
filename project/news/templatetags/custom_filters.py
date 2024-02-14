@@ -1,16 +1,17 @@
 from django import template
+import string
 
 register = template.Library()
 
-cens = ['хрен', 'Простофили']
+forbidden_words = ['хрен', 'Простофили']
 
 @register.filter()
-def change_querry(value):
-    if isinstance(value, str):
-        text = []
-        text1 = value.split(" ")
-        for i in text1:
-            if i in cens:
-                i = '***'
-            text.append(i)
-        return' '.join(text)
+def censor(value):
+    words = value.split()
+    result = []
+    for word in words:
+        if word in forbidden_words:
+            result.append(word[0] + "*"*(len(word)-2) + word[-1])
+        else:
+            result.append(word)
+    return " ".join(result)
